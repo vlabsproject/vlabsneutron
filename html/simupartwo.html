@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PostLab</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="../css/postlab.css" />
+    <script src="../javascript/simuextra.js"></script>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'
+          rel='stylesheet'>
+</head>
+<body style="background-color: hsl(var(--neutral100)); color: hsl(var(--neutral700));">
+
+  <body id="body-pd">
+   
+
+   
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav__logo">
+                    <i class='bx bx-layer nav__logo-icon'></i>
+                    <span class="nav__logo-name">Virtual Labs</span>
+                </a>
+    
+                <div class="nav__list">
+                  <a href="#" class="nav__link "  onmouseover="playhover()">
+                        <i class='bx bxs-info-circle'onmouseover="playhover()"  onclick="window.location.href='./introduction.html'"></i>
+                        <span class="nav__name"   onclick="window.location.href='./introduction.html'">Introduction</span>
+                    </a>
+    
+                    <a href="#" class="nav__link " onmouseover="playhover()">
+                        <i class='bx bx-book-bookmark' onmouseover="playhover()" onclick="window.location.href='./introduction.html'"></i>
+                        <span class="nav__name" onclick="window.location.href='./Theory.html'">Theory</span>
+                    </a>
+    
+                    <a href="#" class="nav__link active"  onmouseover="playhover()">
+                        <i class='bx bx-laptop'onmouseover="playhover()" onclick="window.location.href='./introduction.html'" ></i>
+                        <span class="nav__name" onclick="window.location.href='./simulation.html'">Simulation</span>
+                    </a>
+                    <a href="#" class="nav__link "  onmouseover="playhover()">
+                        <i class='bx bx-brain' onmouseover="playhover()" onclick="window.location.href='./introduction.html'"></i>
+                        <span class="nav__name"    onclick="window.location.href='./quiz.html'">Quiz</span>
+                    </a>
+                    <a href="#" class="nav__link "  onmouseover="playhover()">
+                        <i class='bx bxs-message-rounded-detail'onmouseover="playhover() onclick="window.location.href='./introduction.html'"" ></i>
+                        <span class="nav__name"  onclick="window.location.href=''">Chatbot</span>
+                    </a>
+    
+                    <a href="#" class="nav__link"  onmouseover="playhover()">
+                        <i class='bx bxs-help-circle'onmouseover="playhover()" onclick="window.location.href='./introduction.html'"></i>
+                        <span class="nav__name"  onclick="window.location.href='./faq.html'">FAQ</span>
+                    </a>
+                </div>
+            </div>
+    
+            <a href="#" class="nav__link" onmouseover="playudio()">
+                <i class='bx bx-log-out nav__icon' onmouseover="playhover()"></i>
+                <span class="nav__name" onclick="window.location.href='/index.html'">Log Out</span>
+            </a>
+        </nav>
+    </div>
+    
+    <audio id="buttonudio" src="../assests/audios/cliccks.mp3"></audio>
+    <audio id="buttonhover" src="../assests/audios/hovvers.mp3"></audio>
+    
+    <script>
+        function playclick() {
+            var audio = document.getElementById('buttonudio');
+            audio.play();
+        }
+
+        function playhover() {
+            var audio = document.getElementById('buttonhover');
+            audio.play();
+        }
+    </script>
+    
+  
+ 
+
+<div class="container-fluid" style="margin-top: 70px;">
+    <!-- Content of your page goes here -->
+    <div class="center">
+      <p>
+        <a class="btn btn-lg btn-outline-light"> PostLab Exercise </a>
+      </p>
+    </div>
+
+
+    <div class="exp">
+      <div class="d-flex justify-content-evenly">
+        <div class="d-flex flex-column">
+          <div class="activebuttons border-light">
+            <label for="customRange3" class="form-label">
+              Frequency (F) :
+            </label>
+            <input
+              type="range"
+              class="form-range"
+              min="300"
+              max="1000"
+              value="650"
+              id="customRange3"
+              onmousemove="freq(this.value)"
+            />
+            <div id="freq">650 mHz</div>
+          </div>
+          <div class="activebuttons border-light">
+            <label for="customRange3" class="form-label">
+              Distance (R) :
+            </label>
+            <input
+              type="range"
+              class="form-range"
+              min="1"
+              max="100"
+              value="50"
+              id="customRange3"
+              onmousemove="dist(this.value)"
+            />
+            <div id="dist">50 m</div>
+          </div>
+          <div class="activebuttons border-light">
+            <label for="customRange3" class="form-label">
+              Angle (&Theta;) :
+            </label>
+            <input
+              type="range"
+              class="form-range"
+              min="0"
+              max="180"
+              value="90"
+              id="customRange3"
+              onmousemove="angle(this.value)"
+            />
+            <div id="theta">90 &#176;</div>
+          </div>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="consts">
+            <div class="d-flex flex-column">
+              <div class="inp1 mt-4 mb-2" id="txt3">
+                Speed of Light (c) : 3x10<sup>8</sup>, &#160; &#181;<sub>0</sub>
+                = 4&pi;x10<sup>-7</sup> &#160; &epsilon;<sub>0</sub> =
+                8.84x10<sup>-12</sup>
+              </div>
+              <div class="inp1 my-2" id="txt3">
+                Maximum or peak value of current (I<sub>0</sub>) = 5
+              </div>
+              <div class="inp1 my-2" id="txt3">
+                Intrinsic Impedence (&eta;) = 120&pi;
+              </div>
+              <div class="inp1 my-2" id="txt3">
+                Relative permitivity (&epsilon;<sub>0</sub>) = 1
+              </div>
+              <div class="reset mt-3">
+                <p>
+                  <a class="addbutton btn-outline-success" onclick="solve()">
+                    Add values to the Observation Table
+                  </a>
+                </p>
+                <p>
+                  <a class="btn btn-outline-danger" onclick="reset()">
+                    Reset
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Observation Table Starts -->
+
+    <div class="table-header mt-3">
+      <p>
+        <a class="btn btn-outline-light btn-lg"> Observation Table </a>
+      </p>
+    </div>
+
+    <div class="obs-table">
+      <div class="d-flex justify-content-evenly">
+        <table
+          class="table table-hover table-bordered border-dark"
+        >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Frequency (mHz)</th>
+              <th scope="col">Distance (m)</th>
+              <th scope="col">Magnetic Field (A/m)</th>
+              <th scope="col">Electric Field (V/m)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td><span id="freq2_1"></span></td>
+              <td><span id="dist2_1"></span></td>
+              <td><span id="mag2_1"></span></td>
+              <td><span id="elec2_1"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td><span id="freq2_2"></span></td>
+              <td><span id="dist2_2"></span></td>
+
+              <td><span id="mag2_2"></span></td>
+              <td><span id="elec2_2"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td><span id="freq2_3"></span></td>
+              <td><span id="dist2_3"></span></td>
+
+              <td><span id="mag2_3"></span></td>
+              <td><span id="elec2_3"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td><span id="freq2_4"></span></td>
+              <td><span id="dist2_4"></span></td>
+
+              <td><span id="mag2_4"></span></td>
+              <td><span id="elec2_4"></span></td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td><span id="freq2_5"></span></td>
+              <td><span id="dist2_5"></span></td>
+
+              <td><span id="mag2_5"></span></td>
+              <td><span id="elec2_5"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="plot-label">
+      <p>
+        <a class="plot btn-outline-success" onclick="plot()"> Plot </a>
+      </p>
+    </div>
+
+    <div id="mag">
+      <h5><u>Magnetic Field vs Distance from the antenna</u></h5>
+    </div>
+    
+    <canvas id="myChartMag" style="width: 100%; max-width: 700px ; max-height: 800px ;"></canvas>
+
+    <br><br>
+    <div id="elec">
+      <h5><u>Electric Field vs Distance from the antenna</u></h5>
+    </div>
+    
+
+    <canvas id="myChartElec" style="width: 100%; max-width: 700px ; max-height: 800px"></canvas>
+
+   
+
+    <br /><br />
+</div>
+<audio id="autoPlayAudio" src="../assests/audios/cliccks.mp3" autoplay></audio>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</body>
+</html>
