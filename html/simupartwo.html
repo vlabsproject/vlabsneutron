@@ -20,69 +20,70 @@
 
   <body id="body-pd">
    
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+          <div>
+              <a href="#" class="nav__logo">
+                  <i class='bx bx-layer nav__logo-icon'></i>
+                  <span class="nav__logo-name">Virtual Labs</span>
+              </a>
+  
+              <div class="nav__list">
+                <a href="#" class="nav__link " onmouseover="playhover()">
+                      <i class='bx bxs-info-circle'onmouseover="playhover()" ></i>
+                      <span class="nav__name"   onclick="window.location.href='./introduction.html'">Introduction</span>
+                  </a>
+  
+                  <a href="#" class="nav__link " onmouseover="playhover()">
+                      <i class='bx bx-book-bookmark' onmouseover="playhover()"></i>
+                      <span class="nav__name" onclick="window.location.href='./Theory.html'">Theory</span>
+                  </a>
+  
+                  <a href="#" class="nav__link active"  onmouseover="playhover()">
+                      <i class='bx bx-laptop'onmouseover="playhover()" ></i>
+                      <span class="nav__name" onclick="window.location.href='./simulation.html'">Simulation</span>
+                  </a>
+                  <a href="#" class="nav__link "  onmouseover="playhover()">
+                      <i class='bx bx-brain' onmouseover="playhover()"></i>
+                      <span class="nav__name"    onclick="window.location.href='./quiz.html'">Quiz</span>
+                  </a>
+                  <a href="#" class="nav__link "  onmouseover="playhover()">
+                      <i class='bx bxs-message-rounded-detail'onmouseover="playhover()" ></i>
+                      <span class="nav__name"  onclick="window.location.href=''">Chatbot</span>
+                  </a>
+  
+                  <a href="#" class="nav__link"  onmouseover="playhover()">
+                      <i class='bx bxs-help-circle'onmouseover="playhover()"></i>
+                      <span class="nav__name"  onclick="window.location.href='./faq.html'">FAQ</span>
+                  </a>
+              </div>
+          </div>
+  
+          <a href="#" class="nav__link" onmouseover="playudio()">
+              <i class='bx bx-log-out nav__icon' onmouseover="playhover()"></i>
+              <span class="nav__name" onclick="window.location.href='/index.html'">Log Out</span>
+          </a>
+      </nav>
+  </div>
+  
+  <audio id="buttonudio" src="../assests/audios/cliccks.mp3"></audio>
+  <audio id="buttonhover" src="../assests/audios/hovvers.mp3"></audio>
+  
+  <script>
+      function playclick() {
+          var audio = document.getElementById('buttonudio');
+          audio.play();
+      }
+
+      function playhover() {
+          var audio = document.getElementById('buttonhover');
+          audio.play();
+      }
+  </script>
+  
 
    
-    <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div>
-                <a href="#" class="nav__logo">
-                    <i class='bx bx-layer nav__logo-icon'></i>
-                    <span class="nav__logo-name">Virtual Labs</span>
-                </a>
-    
-                <div class="nav__list">
-                  <a href="#" class="nav__link "  onmouseover="playhover()">
-                        <i class='bx bxs-info-circle'onmouseover="playhover()"  onclick="window.location.href='./introduction.html'"></i>
-                        <span class="nav__name"   onclick="window.location.href='./introduction.html'">Introduction</span>
-                    </a>
-    
-                    <a href="#" class="nav__link " onmouseover="playhover()">
-                        <i class='bx bx-book-bookmark' onmouseover="playhover()" onclick="window.location.href='./introduction.html'"></i>
-                        <span class="nav__name" onclick="window.location.href='./Theory.html'">Theory</span>
-                    </a>
-    
-                    <a href="#" class="nav__link active"  onmouseover="playhover()">
-                        <i class='bx bx-laptop'onmouseover="playhover()" onclick="window.location.href='./introduction.html'" ></i>
-                        <span class="nav__name" onclick="window.location.href='./simulation.html'">Simulation</span>
-                    </a>
-                    <a href="#" class="nav__link "  onmouseover="playhover()">
-                        <i class='bx bx-brain' onmouseover="playhover()" onclick="window.location.href='./introduction.html'"></i>
-                        <span class="nav__name"    onclick="window.location.href='./quiz.html'">Quiz</span>
-                    </a>
-                    <a href="#" class="nav__link "  onmouseover="playhover()">
-                        <i class='bx bxs-message-rounded-detail'onmouseover="playhover() onclick="window.location.href='./introduction.html'"" ></i>
-                        <span class="nav__name"  onclick="window.location.href=''">Chatbot</span>
-                    </a>
-    
-                    <a href="#" class="nav__link"  onmouseover="playhover()">
-                        <i class='bx bxs-help-circle'onmouseover="playhover()" onclick="window.location.href='./introduction.html'"></i>
-                        <span class="nav__name"  onclick="window.location.href='./faq.html'">FAQ</span>
-                    </a>
-                </div>
-            </div>
-    
-            <a href="#" class="nav__link" onmouseover="playudio()">
-                <i class='bx bx-log-out nav__icon' onmouseover="playhover()"></i>
-                <span class="nav__name" onclick="window.location.href='/index.html'">Log Out</span>
-            </a>
-        </nav>
-    </div>
-    
-    <audio id="buttonudio" src="../assests/audios/cliccks.mp3"></audio>
-    <audio id="buttonhover" src="../assests/audios/hovvers.mp3"></audio>
-    
-    <script>
-        function playclick() {
-            var audio = document.getElementById('buttonudio');
-            audio.play();
-        }
-
-        function playhover() {
-            var audio = document.getElementById('buttonhover');
-            audio.play();
-        }
-    </script>
-    
+   
   
  
 
