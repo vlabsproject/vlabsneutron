@@ -463,6 +463,7 @@ body, .container, .video-controls, .video-timer, .options{
 }
 
 .container{
+  padding-top: 25px;
   position: absolute;
   height: 329px;
   width: 56%;
@@ -471,8 +472,8 @@ body, .container, .video-controls, .video-timer, .options{
   border-radius: 5px;
   background: #000;
   position: relative;
-  margin-top: 70px;
-margin-left: 66px;
+  margin-top: 90px;
+margin-left: 30px;
 }
 .container.fullscreen{
   max-width: 100%;
@@ -758,6 +759,31 @@ left: -80px;
   color: #333;
 }
 
+
+#bottom-right-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #06fffb;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.heding {
+  position: absolute;
+  top: -220px; 
+  color: #06fffb;
+  left: 35%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  text-align: center; /* Center-align the text */
+}
 @media screen and (max-width: 700px){
   .box{
     width: 90%;

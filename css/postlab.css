@@ -404,3 +404,28 @@ width: 200px;
   margin-top: 9px;
   color:  #0bd7c3;
 }
+
+.btn-primary{
+
+  height: 60px;
+  width: 120px;
+   margin-left: 10px;
+   background-color: #0bd7c3;
+   border-color: #fff;
+   border-radius: 3px;
+   border-style: groove;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background:  #00d4d4;
+  color: #000;
+} 
+
+.scrollDownText{
+  color: #00d4d4;
+  background-color: #00EDDF;
+  font-weight: bold;
+  font-size: large;
+}
