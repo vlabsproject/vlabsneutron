@@ -94,9 +94,26 @@
         }
     </script>
     
-  
- 
 
+    <!-- Popup message for small screens -->
+    <div id="popupMessage" class="popup-message">
+        <p>Please switch to a desktop for the best experience.</p>
+    </div> 
+    <script>
+        // Function to display popup message on small screens
+        function displayPopupMessage() {
+            // Check if the screen width is less than 768 pixels (small screens)
+            if (window.innerWidth < 768) {
+                var popup = document.getElementById('popupMessage');
+                popup.style.display = 'block'; // Display the popup message
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = function() {
+            displayPopupMessage();
+        };
+    </script>
  <div class="info_box">
      <div class="info-title">INTRODUCTION</div>
     

@@ -288,3 +288,33 @@ a{
     padding-left: calc(var(--nav-width) + 188px);
   }
 }
+
+/* CSS for smaller screens (mobiles) */
+@media only screen and (max-width: 767px) {
+  body {
+      display: none; /* Hide the entire body content */
+  }
+}
+
+/* CSS for bigger screens (laptops and desktops) */
+@media only screen and (min-width: 768px) {
+  body {
+      display: block; /* Display the body content */
+  }
+}
+
+/* CSS for the popup message */
+.popup-message {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}

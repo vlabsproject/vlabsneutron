@@ -96,3 +96,4 @@ function updateHTML() {
 
 // Call the function to start audio after a delay when the page loads
 window.onload = startAudioAfterDelay;
+
