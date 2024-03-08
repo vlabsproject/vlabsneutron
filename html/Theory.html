@@ -19,21 +19,31 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <title>Theory</title>
+    <style>
+        /* Additional CSS for responsiveness */
+        #bottom-right-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999; /* Ensure the button is above other content */
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            /* Adjust styles for smaller screens */
+            #bottom-right-button {
+                bottom: 10px;
+                right: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
-<div id="modal-content" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                    <p class="snapheading">welcome to theory</p>
-                    <div class="modal-footer signCenter"><p class="info">Explore Interactive Visualizations of Theoretical Knowledge</p>
-                        <a href="#" class="btn closeftr" data-dismiss="modal">Close</a>
-                        
-                    </div>
-            </div>
-        
-        </div>
-    </div>
-</div>
 <body id="body-pd">
     <header class="header" id="header">
         <div class="header__toggle">
@@ -89,14 +99,13 @@
         </nav>
     </div>
   
-    <button id="bottom-right-button" onclick="window.location.href='./simulation.html'">Next</button>
-    <audio id="buttonudio" src="../assests/audios/cliccks.mp3"></audio>
+    <audio id="buttonaudio" src="../assests/audios/cliccks.mp3"></audio>
     <audio id="buttonhover" src="../assests/audios/hovvers.mp3"></audio>
 
     
     <script>
         function playclick() {
-            var audio = document.getElementById('buttonudio');
+            var audio = document.getElementById('buttonaudio');
             audio.play();
         }
 
@@ -158,6 +167,9 @@
     </div>
 
     <audio id="autoPlayAudio" src="../assests/audios/cliccks.mp3" autoplay></audio>
+
+    <!-- Next button -->
+    <button id="bottom-right-button" onclick="window.location.href='./simulation.html'">Next</button>
 
     <!--===== MAIN JS =====-->
     <script src="../javascript/Theory.js"></script>
