@@ -1,3 +1,7 @@
+// Assumptions:
+//   1. Antenna is kept in free space and made of non-magnetic material.
+//     - Intrin
+
 counter = 0;
 
 const c = 3*Math.pow(10, 8);
@@ -12,9 +16,13 @@ var f = 650*Math.pow(10, 6);
 var theta = 90;
 var r = 50;
 
-var distances = [];
-var mag = [];
-var elec = [];
+// var wav = 0;
+// var pow_rad = 0;
+// var rad_res = 0;
+// var H = 0;
+// var E = 0;
+// var rad_intensity = 0;
+
 
 function freq(slideValue) {
   var sliderDiv = document.getElementById("freq");
@@ -29,7 +37,6 @@ function dist(slideValue) {
   var sliderDiv = document.getElementById("dist");
   sliderDiv.innerHTML = slideValue + " m";
   r = slideValue;
-
   // document.getElementById("ans").innerHTML = out.toFixed(3) + "V";
 }
 
@@ -39,8 +46,6 @@ function angle(slideValue) {
   theta = slideValue;
   // document.getElementById("ans").innerHTML = out.toFixed(3) + "V";
 }
-
-console.log();
 
 function solve(){
 
@@ -60,59 +65,68 @@ function solve(){
   //console.log(wav, pow_rad, rad_res, H, E, rad_intensity);
 
   if (counter === 1){
-    document.getElementById("freq2_1").innerHTML = Number(f/1000000);
-    document.getElementById("dist2_1").innerHTML = r;
-    document.getElementById("mag2_1").innerHTML = H.toFixed(3);
-    document.getElementById("elec2_1").innerHTML = E.toFixed(3); 
-    // document.getElementById("radint2_1").innerHTML = rad_intensity.toFixed(3); 
+    document.getElementById("freq1").innerHTML = Number(f/1000000);
+    document.getElementById("dist1").innerHTML = r;
+    document.getElementById("theta1").innerHTML = theta;
+    document.getElementById("wav1").innerHTML = wav.toFixed(3);
+    document.getElementById("pow_rad1").innerHTML = pow_rad;
+    document.getElementById("rad_res1").innerHTML = rad_res;
+    document.getElementById("mag1").innerHTML = H.toFixed(3);
+    document.getElementById("elec1").innerHTML = E.toFixed(3); 
+    document.getElementById("radint1").innerHTML = rad_intensity.toFixed(3); 
   }
 
   if (counter === 2){
-    document.getElementById("freq2_2").innerHTML = Number(f/1000000);
-    document.getElementById("dist2_2").innerHTML = r;
-
-    document.getElementById("mag2_2").innerHTML = H.toFixed(3);
-    document.getElementById("elec2_2").innerHTML = E.toFixed(3); 
-    // document.getElementById("radint2_2").innerHTML = rad_intensity.toFixed(3); 
+    document.getElementById("freq2").innerHTML = Number(f/1000000);
+    document.getElementById("dist2").innerHTML = r;
+    document.getElementById("theta2").innerHTML = theta;
+    document.getElementById("wav2").innerHTML = wav.toFixed(3);
+    document.getElementById("pow_rad2").innerHTML = pow_rad;
+    document.getElementById("rad_res2").innerHTML = rad_res;
+    document.getElementById("mag2").innerHTML = H.toFixed(3);
+    document.getElementById("elec2").innerHTML = E.toFixed(3); 
+    document.getElementById("radint2").innerHTML = rad_intensity.toFixed(3); 
   }
 
   if (counter === 3){
-    document.getElementById("freq2_3").innerHTML = Number(f/1000000);
-    document.getElementById("dist2_3").innerHTML = r;
-
-    document.getElementById("mag2_3").innerHTML = H.toFixed(3);
-    document.getElementById("elec2_3").innerHTML = E.toFixed(3); 
-    // document.getElementById("radint2_3").innerHTML = rad_intensity.toFixed(3); 
+    document.getElementById("freq3").innerHTML = Number(f/1000000);
+    document.getElementById("dist3").innerHTML = r;
+    document.getElementById("theta3").innerHTML = theta;
+    document.getElementById("wav3").innerHTML = wav.toFixed(3);
+    document.getElementById("pow_rad3").innerHTML = pow_rad;
+    document.getElementById("rad_res3").innerHTML = rad_res;
+    document.getElementById("mag3").innerHTML = H.toFixed(3);
+    document.getElementById("elec3").innerHTML = E.toFixed(3); 
+    document.getElementById("radint3").innerHTML = rad_intensity.toFixed(3); 
   }
 
   if (counter === 4){
-    document.getElementById("freq2_4").innerHTML = Number(f/1000000);
-    document.getElementById("dist2_4").innerHTML = r;
-
-    document.getElementById("mag2_4").innerHTML = H.toFixed(3);
-    document.getElementById("elec2_4").innerHTML = E.toFixed(3); 
-    // document.getElementById("radint2_4").innerHTML = rad_intensity.toFixed(3); 
+    document.getElementById("freq4").innerHTML = Number(f/1000000);
+    document.getElementById("dist4").innerHTML = r;
+    document.getElementById("theta4").innerHTML = theta;
+    document.getElementById("wav4").innerHTML = wav.toFixed(3);
+    document.getElementById("pow_rad4").innerHTML = pow_rad;
+    document.getElementById("rad_res4").innerHTML = rad_res;
+    document.getElementById("mag4").innerHTML = H.toFixed(3);
+    document.getElementById("elec4").innerHTML = E.toFixed(3); 
+    document.getElementById("radint4").innerHTML = rad_intensity.toFixed(3); 
   }
 
   if (counter === 5){
-    document.getElementById("freq2_5").innerHTML = Number(f/1000000);
-    document.getElementById("dist2_5").innerHTML = r;
-
-    document.getElementById("mag2_5").innerHTML = H.toFixed(3);
-    document.getElementById("elec2_5").innerHTML = E.toFixed(3); 
-    // document.getElementById("radint2_5").innerHTML = rad_intensity.toFixed(3); 
+    document.getElementById("freq5").innerHTML = Number(f/1000000);
+    document.getElementById("dist5").innerHTML = r;
+    document.getElementById("theta5").innerHTML = theta;
+    document.getElementById("wav5").innerHTML = wav.toFixed(3);
+    document.getElementById("pow_rad5").innerHTML = pow_rad;
+    document.getElementById("rad_res5").innerHTML = rad_res;
+    document.getElementById("mag5").innerHTML = H.toFixed(3);
+    document.getElementById("elec5").innerHTML = E.toFixed(3); 
+    document.getElementById("radint5").innerHTML = rad_intensity.toFixed(3); 
   }
 
   if (counter > 5){
     alert("Observation Table already filled!");
   }
-  distances.push(r);
-  mag.push(H);
-  elec.push(E);
-
-
-console.log("clicked");
-
 
 }
 
@@ -125,56 +139,83 @@ function reset() {
 
 
 
-function plot(){
 
-  var x = document.getElementById("mag");
-  x.style.display = "block";
-  var y = document.getElementById("elec");
-  y.style.display = "block";
-  
-  new Chart("myChartMag", {
-    type: "line",
-    data: {
-      labels: distances,
-      datasets: [{
-        fill: false,
-        lineTension: 0,
-        backgroundColor: " #0bd7c3",
-        borderColor: " #0bd7c3",
-        data: mag
-      }
-    ]
-    },
-    options: {
-      legend: {display: false},
-      // scales: {
-      //   yAxes: [{ticks: {min: 0.008, max:0.8}}],
-      // }
-    }
-  });
+// counter += 1;
 
-  new Chart("myChartElec", {
-    type: "line",
-    data: {
-      labels: distances,
-      datasets: [{
-        fill: false,
-        lineTension: 0,
-        backgroundColor: " #0bd7c3",
-        borderColor: " #0bd7c3",
-        data: elec
-      }
-    ]
-    },
-    options: {
-      legend: {display: false},
-      // scales: {
-      //   yAxes: [{ticks: {min: 0.008, max:0.8}}],
-      // }
-    }
-  });
+// if (r1 === r2 && r2 === rf){
+//     vout = -1 * (v1 + v2);
+//     document.getElementById("type").innerHTML = "Adder Circuit";
+//     console.log("eq");
+//     console.log(vout);
+// } else if (r1 === r2 && rf/r1 === 0.5){
+//     vout = -1 * 0.5 * (v1 + v2);
+//     document.getElementById("type").innerHTML = "Averaging Circuit";
+//     console.log("/");
+//     console.log(vout);
+// } else {
+//     vout = -1 * ((rf/r1)*v1 + (rf/r2)*v2);
+//     document.getElementById("type").innerHTML = "Scaling Circuit";
+//     console.log(rf);
+//     console.log(r1);
+//     console.log(vout);
+// }
+// document.getElementById("ans").innerHTML = vout.toFixed(3) + "V";
 
-  // console.log(distances);
-  // console.log(mag);
-  // console.log(elec);
-}
+// if (counter === 1){
+//     document.getElementById("vout1").innerHTML = vout.toFixed(3) + "V";
+//     if (r1 === r2 && r2 === rf){
+//         document.getElementById("type1").innerHTML = "Adder Circuit";
+//     } else if (r1 === r2 && rf/r1 === 0.5){
+//         document.getElementById("type1").innerHTML = "Averaging Circuit";
+//     } else {
+//         document.getElementById("type1").innerHTML = "Scaling Circuit";
+//     }
+// }
+
+// if (counter === 2){
+//     document.getElementById("vout2").innerHTML = vout.toFixed(3) + "V";
+//     if (r1 === r2 && r2 === rf){
+//         document.getElementById("type2").innerHTML = "Adder Circuit";
+//     } else if (r1 === r2 && rf/r1 === 0.5){
+//         document.getElementById("type2").innerHTML = "Averaging Circuit";
+//     } else {
+//         document.getElementById("type2").innerHTML = "Scaling Circuit";
+//     }
+// }
+
+// if (counter === 3){
+//     document.getElementById("vout3").innerHTML = vout.toFixed(3) + "V";
+//     if (r1 === r2 && r2 === rf){
+//         document.getElementById("type3").innerHTML = "Adder Circuit";
+//     } else if (r1 === r2 && rf/r1 === 0.5){
+//         document.getElementById("type3").innerHTML = "Averaging Circuit";
+//     } else {
+//         document.getElementById("type3").innerHTML = "Scaling Circuit";
+//     }
+// }
+
+// if (counter === 4){
+//     document.getElementById("vout4").innerHTML = vout.toFixed(3) + "V";
+//     if (r1 === r2 && r2 === rf){
+//         document.getElementById("type4").innerHTML = "Adder Circuit";
+//     } else if (r1 === r2 && rf/r1 === 0.5){
+//         document.getElementById("type4").innerHTML = "Averaging Circuit";
+//     } else {
+//         document.getElementById("type4").innerHTML = "Scaling Circuit";
+//     }
+// }
+
+// if (counter === 5){
+//     document.getElementById("vout5").innerHTML = vout.toFixed(3) + "V";
+//     if (r1 === r2 && r2 === rf){
+//         document.getElementById("type5").innerHTML = "Adder Circuit";
+//     } else if (r1 === r2 && rf/r1 === 0.5){
+//         document.getElementById("type5").innerHTML = "Averaging Circuit";
+//     } else {
+//         document.getElementById("type5").innerHTML = "Scaling Circuit";
+//     }
+// }
+
+// if (counter > 5){
+//     alert("Observation Table already filled!");
+// }
